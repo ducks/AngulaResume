@@ -1,0 +1,38 @@
+{
+  "name": "angularesume",
+  "version": "1.0.0",
+  "description": "An Angular based resumre for Jake Goldsborough",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "touch public/js/resume.js",
+    "build": "npm run browserify && npm run build:sass",
+    "prestart": "npm run build",
+    "build:min": "npm run uglify && npm run build:sass:min",
+    "start": "http-server ./ -a 0.0.0.0 -p 4578",
+    "browserify": "browserify index.js -o public/js/resume.js",
+    "watchify": "watchify index.js -o public/js/resume.js",
+    "uglify": "browserify index.js | uglifyjs -c > public/js/resume.min.js",
+    "build:sass": "node-sass -r public/sass/ -o public/css/",
+    "watch:sass": "node-sass -wr public/sass/ -o public/css/",
+    "build:sass:min": "node-sass --output-style=compressed -r public/sass/ -o public/css/"
+  },
+  "keywords": [
+    "angular",
+    "html5",
+    "resume"
+  ],
+  "author": "Jake Goldsborough",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.3.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "http-server": "^0.9.0",
+    "node-sass": "^3.7.0",
+    "uglify": "^0.1.5",
+    "watchify": "^3.7.0"
+  }
+}

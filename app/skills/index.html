@@ -1,0 +1,9 @@
+<h2>Skillset</h2>
+<section class="skillset" ng-repeat="set in vm.skills">
+  <h3>{{ set.name }}</h3>
+  <ul>
+    <li ng-repeat="s in set.list">
+      {{ s }}
+    </li>
+  </ul>
+</section>

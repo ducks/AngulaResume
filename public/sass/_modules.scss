@@ -1,0 +1,9 @@
+.skillset {
+  @media (min-width: $bp-med) {
+    @include span-columns(4);
+
+    &:nth-child(3) {
+      @include omega();
+    }
+  }
+}
